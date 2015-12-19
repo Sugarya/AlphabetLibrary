@@ -1,2 +1,9 @@
 # AlphabetLibrary
- A Alphabet Library
+### A Alphabet Library.
+### 仿微信联系人字母表控件，做了一个国家列表的字母表控件。使用EventBus来发送消息，解析plist，获取国家电话代码和国家名。
+### 相比微信的字母表控件，做了几点体验上的优化：
+
+* 1字母表的字母随左侧国家代码滑动而闪动。
+* 2点击字母表，被点击的字母亮色显示。   
+
+### 有任何疑问欢迎交流，邮箱：sugarya@foxmail.com。
