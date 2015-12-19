@@ -20,9 +20,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.sugarya.example.alphabetdemo.custom.AlphabetLinearLayout;
-import com.sugarya.example.alphabetdemo.event.ItemIndexEvent;
 import com.sugarya.example.alphabetdemo.event.AlphabetValueEvent;
-import com.sugarya.example.alphabetdemo.utils.LogUtils;
+import com.sugarya.example.alphabetdemo.event.ItemIndexEvent;
 import com.sugarya.example.alphabetdemo.utils.ParserUtils;
 
 import java.io.IOException;
@@ -64,7 +63,7 @@ public class CountryCodeListActivity extends AppCompatActivity implements Adapte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LogUtils.e(TAG,"onCreate");
+
         setContentView(R.layout.country_code_list);
         EventBus.getDefault().register(this);
 
@@ -101,7 +100,7 @@ public class CountryCodeListActivity extends AppCompatActivity implements Adapte
 
     @Override
     protected void onStart() {
-        LogUtils.e(TAG,"onStart");
+
         super.onStart();
     }
 
@@ -132,13 +131,11 @@ public class CountryCodeListActivity extends AppCompatActivity implements Adapte
 
     @Override
     protected void onStop() {
-        LogUtils.e(TAG,"onStop");
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        LogUtils.e(TAG,"onDestroy");
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
@@ -287,7 +284,6 @@ public class CountryCodeListActivity extends AppCompatActivity implements Adapte
             if(mLetterList.contains(str)){
                 txtCountry.setTextColor(mContext.getResources().getColor(R.color.letter_color));
                 if(position != 0) {
-                    LogUtils.e(TAG, "调用mAlphabetLinearLayout.setLetterColor(str)=" + str + " position=" + position);
                     mAlphabetLinearLayout.setLetterColor(str);
                 }
             }else{

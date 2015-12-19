@@ -42,14 +42,12 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        LogUtils.e(TAG,"onStart");
         super.onStart();
     }
 
     public void onEventMainThread(AlphabetValueEvent value){
         if(value != null){
             String telephoneInfo = value.itemValue;
-            LogUtils.e(TAG, "telephoneInfo=" + telephoneInfo);
 
             String[] strings = telephoneInfo.split("\\+");
             if(strings != null){
@@ -63,13 +61,11 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        LogUtils.e(TAG,"onStop");
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        Log.e(TAG,"onDestroy");
         EventBus.getDefault().unregister(this);
         super.onDestroy();
     }

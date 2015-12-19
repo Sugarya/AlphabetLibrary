@@ -169,7 +169,7 @@ public class ParserUtils {
         @SuppressWarnings("unchecked")
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-            //LogUtils.model(TAG,"uri="+uri + "  startElement:" + qName);
+
             if ("plist".equals(qName)) {
                 isRootElement = true;
             }
@@ -224,11 +224,11 @@ public class ParserUtils {
         @SuppressWarnings("unchecked")
         @Override
         public void characters(char[] ch, int start, int length) throws SAXException {
-            //LogUtils.model(TAG,"characters:");
+
             if (length > 0) {
                 if (keyElementBegin) {
                     key = new String(ch, start, length);
-                    //LogUtils.model(TAG,"key:" + key);
+
                 }
                 if (valueElementBegin) {
                     if (LinkedHashMap.class.equals(stack.peek().getClass())) {

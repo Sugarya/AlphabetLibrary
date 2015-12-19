@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,13 +31,14 @@ public class AlphabetLinearLayout extends LinearLayout implements View.OnTouchLi
     private static final String TAG = AlphabetLinearLayout.class.getSimpleName();
     private static final int mLetterScreenVerticalSpan = 16;
     private static final int mLetterHorizontalSpan = 10;
+
     //widgets
     //private Context mContext;
     private PopupWindow mPopupWindow;
     private TextView mTxtInPopup;
 
-    private ItemIndexEvent mItemIndexEvent;
     //Arguments
+    private ItemIndexEvent mItemIndexEvent;
     private List<String> mLetterList;
     private List<TextView> mTxtViewList;
 
@@ -49,7 +49,7 @@ public class AlphabetLinearLayout extends LinearLayout implements View.OnTouchLi
     private String mTouchLetter;
     private int mTouchLetterIndex;
     private float mLetterVerticalSpan;
-    private int mLastReactionPostion;
+    private int mLastReactionPosition;
 
     public AlphabetLinearLayout(Context context) {
         super(context);
@@ -143,7 +143,7 @@ public class AlphabetLinearLayout extends LinearLayout implements View.OnTouchLi
 
                     switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
-                            LogUtils.e(TAG, "按下");
+
                             this.setBackgroundColor(getResources().getColor(R.color.alphabetLinearLayout_bg));
 
                             mTouchLetter = txtLetter.getText().toString().trim();
@@ -157,21 +157,16 @@ public class AlphabetLinearLayout extends LinearLayout implements View.OnTouchLi
                             if (!mPopupWindow.isShowing()) {
                                 mPopupWindow.showAtLocation(v.getRootView(), Gravity.CENTER, 0, 0);
                             }
-                            //Log.e(TAG, "letter=" + mTouchLetter + "  mTouchLetterIndex=" + mTouchLetterIndex);
+
                             break;
                         case MotionEvent.ACTION_MOVE:
 
-                            LogUtils.e(TAG,"移动");
                             mCurrentY = event.getRawY();
 
-                            //Log.e("ACTION_MOVE", "currentY=" + mCurrentY);
-                            //Log.e("ACTION_MOVE", "lastY=" + mLastY);
                             if(mLastY > 0) {
                                 float value = mCurrentY - mLastY;
                                 mVerticalSpanTotal += value;
-                                //Log.e("ACTION_MOVE", "mVerticalSpanTotal=" + mVerticalSpanTotal);
                                 int spanNumber = (int) (mVerticalSpanTotal / mLetterVerticalSpan);
-                                //Log.e("ACTION_MOVE", "spanNumber=" + spanNumber);
 
                                 int order = mTouchLetterIndex + spanNumber;
                                 if (order < 0) {
@@ -182,7 +177,6 @@ public class AlphabetLinearLayout extends LinearLayout implements View.OnTouchLi
                                 }
 
                                 mTouchLetter = mLetterList.get(order);
-                                Log.e(TAG, "order=" + order + " mTouchLetter=" + mTouchLetter);
                                 mTxtInPopup.setText(mTouchLetter);
 
                                 mItemIndexEvent.currentIndex = order;
@@ -194,7 +188,6 @@ public class AlphabetLinearLayout extends LinearLayout implements View.OnTouchLi
                             break;
 
                         case MotionEvent.ACTION_UP:
-                            LogUtils.e(TAG,"抬起");
                             if (mPopupWindow.isShowing()) {
                                 mPopupWindow.dismiss();
                             }
@@ -204,7 +197,6 @@ public class AlphabetLinearLayout extends LinearLayout implements View.OnTouchLi
                             setLetterColor(mTouchLetter);
                             break;
                         case MotionEvent.ACTION_CANCEL:
-                            LogUtils.e(TAG, "取消");
 
                             break;
                         default:
@@ -231,14 +223,12 @@ public class AlphabetLinearLayout extends LinearLayout implements View.OnTouchLi
 
     public void setLetterColor(String letter, int color){
         if(!TextUtils.isEmpty(letter)){
-            LogUtils.e(TAG,"letter="+letter);
+
             if(mLetterList.contains(letter)){
                 int currentPosition = mLetterList.indexOf(letter);
-                LogUtils.e(TAG,"currentPosition="+currentPosition);
-                LogUtils.e(TAG,"mLastReactionPosition="+mLastReactionPostion);
                 if(currentPosition <= mTxtViewList.size()){
-                    if(mLastReactionPostion != currentPosition) {
-                        mTxtViewList.get(mLastReactionPostion).setTextColor(getResources().getColor(android.R.color.black));
+                    if(mLastReactionPosition != currentPosition) {
+                        mTxtViewList.get(mLastReactionPosition).setTextColor(getResources().getColor(android.R.color.black));
                     }
                     if(color != 0){
                         try {
@@ -250,8 +240,8 @@ public class AlphabetLinearLayout extends LinearLayout implements View.OnTouchLi
                         mTxtViewList.get(currentPosition).setTextColor(getResources().getColor(R.color.letter_color));
                     }
                 }
-                if(mLastReactionPostion != currentPosition){
-                    mLastReactionPostion = currentPosition;
+                if(mLastReactionPosition != currentPosition){
+                    mLastReactionPosition = currentPosition;
                 }
 
             }
