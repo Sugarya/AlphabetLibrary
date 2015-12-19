@@ -1,0 +1,142 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.sugarya.example.alphabetdemo.CountryCodeListActivity"
+    >
+    <!-- 标题-->
+    <RelativeLayout
+        android:id="@+id/register_country_code_header_relative"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_alignParentTop="true"
+        android:background="#483f3b"
+
+        >
+
+        <ImageView
+            android:id="@+id/register_country_code_header_back"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13dp"
+            android:src="@drawable/header_back"
+            />
+
+        <RelativeLayout
+            android:id="@+id/register_country_code_header2_container"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/register_country_code_header_back"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="66dp"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            >
+            <View
+                android:id="@+id/register_country_code_line"
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_alignParentBottom="true"
+                android:background="#a8c2c2c2"
+                android:layout_marginBottom="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/register_country_code_header2_search_img"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:src="@drawable/ic_action_search"
+                android:layout_above="@id/register_country_code_line"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="3dp"
+                />
+
+            <EditText
+                android:id="@+id/register_country_code_header2_search_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/register_country_code_header2_search_img"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:textColor="#a7a7a7"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"
+                android:layout_marginRight="5dp"
+                />
+            <ImageView
+                android:id="@+id/register_country_code_header2_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_x"
+                android:paddingLeft="12dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/register_country_code_header1_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/register_country_code_header_back"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+
+            >
+            <TextView
+                android:id="@+id/register_country_code_title_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:text="选择国家和地区代码"
+                android:textColor="#ffffff"
+                android:textSize="17sp"
+                />
+
+            <ImageView
+                android:id="@+id/register_country_code_header1_search_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="13dp"
+                android:src="@drawable/ic_action_search"
+
+                />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <ListView
+        android:id="@+id/register_country_code_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        />
+        <com.sugarya.example.alphabetdemo.custom.AlphabetLinearLayout
+            android:id="@+id/register_country_code_alphabet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
+
+</LinearLayout>

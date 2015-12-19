@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="alphabetLinearLayout_bg">#44000000</color>
+
+    <!-- CountryCode -->
+    <color name="letter_color">#660f0f0f</color>
+    <color name="country_color">#2c2c2c</color>
+
+</resources>
